@@ -1,0 +1,51 @@
+{
+  "num_items": 10,
+  "num_knapsacks": 1,
+  "knapsacks": [
+    {
+      "capacity": 67
+    }
+  ],
+  "items": [
+    {
+      "weight": 23,
+      "value": 505
+    },
+    {
+      "weight": 26,
+      "value": 352
+    },
+    {
+      "weight": 20,
+      "value": 458
+    },
+    {
+      "weight": 18,
+      "value": 220
+    },
+    {
+      "weight": 32,
+      "value": 354
+    },
+    {
+      "weight": 27,
+      "value": 414
+    },
+    {
+      "weight": 29,
+      "value": 498
+    },
+    {
+      "weight": 26,
+      "value": 545
+    },
+    {
+      "weight": 30,
+      "value": 473
+    },
+    {
+      "weight": 27,
+      "value": 54
+    }
+  ]
+}

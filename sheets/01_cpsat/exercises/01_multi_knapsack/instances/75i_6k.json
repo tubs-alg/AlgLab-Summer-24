@@ -1,0 +1,326 @@
+{
+  "num_items": 75,
+  "num_knapsacks": 6,
+  "knapsacks": [
+    {
+      "capacity": 33
+    },
+    {
+      "capacity": 32
+    },
+    {
+      "capacity": 42
+    },
+    {
+      "capacity": 46
+    },
+    {
+      "capacity": 36
+    },
+    {
+      "capacity": 45
+    }
+  ],
+  "items": [
+    {
+      "weight": 13,
+      "value": 22
+    },
+    {
+      "weight": 4,
+      "value": 3
+    },
+    {
+      "weight": 14,
+      "value": 5
+    },
+    {
+      "weight": 12,
+      "value": 9
+    },
+    {
+      "weight": 3,
+      "value": 15
+    },
+    {
+      "weight": 12,
+      "value": 5
+    },
+    {
+      "weight": 9,
+      "value": 15
+    },
+    {
+      "weight": 13,
+      "value": 25
+    },
+    {
+      "weight": 3,
+      "value": 2
+    },
+    {
+      "weight": 5,
+      "value": 22
+    },
+    {
+      "weight": 14,
+      "value": 8
+    },
+    {
+      "weight": 13,
+      "value": 17
+    },
+    {
+      "weight": 7,
+      "value": 15
+    },
+    {
+      "weight": 12,
+      "value": 17
+    },
+    {
+      "weight": 3,
+      "value": 2
+    },
+    {
+      "weight": 2,
+      "value": 1
+    },
+    {
+      "weight": 1,
+      "value": 1
+    },
+    {
+      "weight": 2,
+      "value": 25
+    },
+    {
+      "weight": 10,
+      "value": 11
+    },
+    {
+      "weight": 4,
+      "value": 7
+    },
+    {
+      "weight": 5,
+      "value": 15
+    },
+    {
+      "weight": 9,
+      "value": 14
+    },
+    {
+      "weight": 11,
+      "value": 17
+    },
+    {
+      "weight": 10,
+      "value": 7
+    },
+    {
+      "weight": 10,
+      "value": 3
+    },
+    {
+      "weight": 12,
+      "value": 14
+    },
+    {
+      "weight": 3,
+      "value": 22
+    },
+    {
+      "weight": 12,
+      "value": 11
+    },
+    {
+      "weight": 2,
+      "value": 9
+    },
+    {
+      "weight": 8,
+      "value": 11
+    },
+    {
+      "weight": 13,
+      "value": 19
+    },
+    {
+      "weight": 15,
+      "value": 25
+    },
+    {
+      "weight": 4,
+      "value": 4
+    },
+    {
+      "weight": 11,
+      "value": 21
+    },
+    {
+      "weight": 3,
+      "value": 3
+    },
+    {
+      "weight": 4,
+      "value": 19
+    },
+    {
+      "weight": 15,
+      "value": 18
+    },
+    {
+      "weight": 9,
+      "value": 23
+    },
+    {
+      "weight": 1,
+      "value": 18
+    },
+    {
+      "weight": 14,
+      "value": 19
+    },
+    {
+      "weight": 11,
+      "value": 19
+    },
+    {
+      "weight": 8,
+      "value": 13
+    },
+    {
+      "weight": 10,
+      "value": 5
+    },
+    {
+      "weight": 8,
+      "value": 7
+    },
+    {
+      "weight": 12,
+      "value": 1
+    },
+    {
+      "weight": 7,
+      "value": 12
+    },
+    {
+      "weight": 10,
+      "value": 5
+    },
+    {
+      "weight": 15,
+      "value": 21
+    },
+    {
+      "weight": 1,
+      "value": 16
+    },
+    {
+      "weight": 16,
+      "value": 21
+    },
+    {
+      "weight": 5,
+      "value": 6
+    },
+    {
+      "weight": 13,
+      "value": 3
+    },
+    {
+      "weight": 7,
+      "value": 24
+    },
+    {
+      "weight": 13,
+      "value": 3
+    },
+    {
+      "weight": 9,
+      "value": 5
+    },
+    {
+      "weight": 15,
+      "value": 22
+    },
+    {
+      "weight": 6,
+      "value": 16
+    },
+    {
+      "weight": 9,
+      "value": 17
+    },
+    {
+      "weight": 11,
+      "value": 6
+    },
+    {
+      "weight": 2,
+      "value": 3
+    },
+    {
+      "weight": 14,
+      "value": 2
+    },
+    {
+      "weight": 7,
+      "value": 13
+    },
+    {
+      "weight": 12,
+      "value": 15
+    },
+    {
+      "weight": 12,
+      "value": 6
+    },
+    {
+      "weight": 12,
+      "value": 9
+    },
+    {
+      "weight": 5,
+      "value": 2
+    },
+    {
+      "weight": 7,
+      "value": 23
+    },
+    {
+      "weight": 15,
+      "value": 13
+    },
+    {
+      "weight": 11,
+      "value": 16
+    },
+    {
+      "weight": 16,
+      "value": 20
+    },
+    {
+      "weight": 5,
+      "value": 9
+    },
+    {
+      "weight": 14,
+      "value": 1
+    },
+    {
+      "weight": 3,
+      "value": 13
+    },
+    {
+      "weight": 15,
+      "value": 19
+    },
+    {
+      "weight": 10,
+      "value": 3
+    }
+  ]
+}
