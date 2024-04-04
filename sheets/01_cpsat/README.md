@@ -408,7 +408,7 @@ Solve the following three exercises:
 2. [Exercise: Multi-Knapsack](./exercises/01_multi_knapsack/) A more complex
    problem that requires you to model a multi-knapsack problem and solve it
    using CP-SAT.
-3. [Exercise: Crossover Transplantation](./exercises/02_crossover_transplantation/)
+3. [Exercise: Crossover Transplantation](./exercises/02_organ_donor_problem/)
    A problem that is less abstract and asks you to model and solve a real-world
    problem with CP-SAT.
 
