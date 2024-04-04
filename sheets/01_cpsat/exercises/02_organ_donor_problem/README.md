@@ -84,7 +84,7 @@ file here._
    change their mind. As there are usually only a few ORs, there is a limit on
    how many surgeries can be performed at the same time. To incorporate this
    into your model, you need to restrict the size of each exchange cycle.
-   Implement a new solver in `solver_small_cycles.py` and verify it using
+   Implement a new solver in `solver_small_cycles.py` that allows cycles of size *at most* 3 (i.e., 3 transplantations) and verify it using
    `python3 verify_small_cycles.py`.
 
 ## References
