@@ -39,9 +39,9 @@ transplantations.
 - A list of $n$ donor-recipient pairs, labeled
   $(d_1, r_1), (d_2, r_2), \ldots, (d_n, r_n)$. The set of donors is
   $D = \{d_1, d_2, \ldots, d_n\}$ and the set of recipients is
-  $R = \{r_1, r_2, \ldots, r_n\}$. Recpients can occur more than once, e.g.,
+  $R = \{r_1, r_2, \ldots, r_n\}$. Recipients can occur more than once, e.g.,
   $r_1=r_3$, but donors will only appear once, i.e.,
-  $\forall i\not= j: r_i\not=r_j$.
+  $\forall i\not= j: d_i\not=d_j$.
 - A compatibility function $f: D\times R \rightarrow \mathbb{B}$ where
   $f(d_i, r_j)$ is 1 if $d_i\in D$ is compatible with $r_j\in R$ and 0
   otherwise.
