@@ -50,7 +50,7 @@ graph. Utilize cardinality constraints to mandate the exit of two edges from
 each component. This iterative process is expected to converge to a feasible
 solution promptly.
 
-## Task 2: Bottleneck Traveling Salesman Problem (BTSP) Solver
+### Task 2: Bottleneck Traveling Salesman Problem (BTSP) Solver
 
 1. Develop a solver for obtaining exact solutions to the Bottleneck Traveling
    Salesman Problem (BTSP). The implementation should be in file
