@@ -80,12 +80,15 @@ file here._
    `python3 verify_basic.py`. There's also a simple solution visualizer, which
    might help you debug your model. Run it using `python3 visualization.py`.
 
+   *Hint:* The most common problem with this exercise is a too slow model building due to inefficient loops. Loop over the `get_compatible_recipients` or `get_compatible_donors` functions instead of checking all pairs.
+
 3. The surgeries usually have to be performed in parallel such that no donor can
    change their mind. As there are usually only a few ORs, there is a limit on
    how many surgeries can be performed at the same time. To incorporate this
    into your model, you need to restrict the size of each exchange cycle.
    Implement a new solver in `solver_small_cycles.py` that allows cycles of size *at most* 3 (i.e., 3 transplantations) and verify it using
    `python3 verify_small_cycles.py`.
+   
    *Hint:* Start with the most obvious model using the `simple_cycle` function you find in the references. Do not try to use the model from the previous task.
 
 ## References
