@@ -123,6 +123,12 @@ class FractionalSolution:
             item.weight * taken
             for item, taken in zip(self.instance.items, self.selection)
         )
+    
+    def copy(self) -> "FractionalSolution":
+        """
+        Create a copy of the fractional solution.
+        """
+        return FractionalSolution(self.instance, self.selection.copy())
 
     def is_fractionally_feasible(self) -> bool:
         """
