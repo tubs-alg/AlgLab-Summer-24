@@ -86,6 +86,7 @@ file here._
    into your model, you need to restrict the size of each exchange cycle.
    Implement a new solver in `solver_small_cycles.py` that allows cycles of size *at most* 3 (i.e., 3 transplantations) and verify it using
    `python3 verify_small_cycles.py`.
+   *Hint:* Start with the most obvious model using the `simple_cycle` function you find in the references. Do not try to use the model from the previous task.
 
 ## References
 
@@ -95,8 +96,7 @@ file here._
   abilities of `pydantic` to ensure valid data. While there are many similar
   libraries, including Python's own `dataclasses`, `pydantic` is a very popular
   choice for data validation and serialization in industry.
-- You may find useful algorithms for preprocessing in
-  [networkx](https://networkx.org/documentation/stable/reference/algorithms/index.html).
+- You may find the `simple_cycle` function from the `networkx` library useful for the last task. [https://networkx.org/documentation/stable/reference/algorithms/generated/networkx.algorithms.cycles.simple_cycles.html](https://networkx.org/documentation/stable/reference/algorithms/generated/networkx.algorithms.cycles.simple_cycles.html)
 - [CP-SAT Primer](https://github.com/d-krupke/cpsat-primer): A primer by us for
   CP-SAT.
 - [pre-commit](https://pre-commit.com/): We have set up a pre-commit
