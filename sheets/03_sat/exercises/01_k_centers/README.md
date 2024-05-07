@@ -63,6 +63,8 @@ The input of the solvers will be weighted networkx graphs.
    structure in `solution.py`. You can verify your implementation by running
    `python3 verify.py` in the terminal.
 
+*Hint: You may find [`shortest_path_length`](https://networkx.org/documentation/stable/reference/algorithms/generated/networkx.algorithms.shortest_paths.generic.shortest_path_length.html#networkx.algorithms.shortest_paths.generic.shortest_path_length) useful.*
+
 ## References
 
 - [A peek inside SAT Solvers - Jon Smock](https://www.youtube.com/watch?v=d76e4hV1iJY):
