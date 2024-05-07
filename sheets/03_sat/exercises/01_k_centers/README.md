@@ -54,11 +54,13 @@ The input of the solvers will be weighted networkx graphs.
 
 1. Implement a heuristic which you could use to get an upper bound on the
    objective value.
-2. Implement an exact solver for the problem by incrementally reducing the upper
-   bound on the objective value by prohibiting the most expensive edge and
-   repeatedly calling the SAT solver until the SAT-formula is unsatisfiable. You
-   can prohibit an edge by just adding a clause. You find a code structure in
-   `solution.py`. You can verify your implementation by running
+2. Implement a solver that can give you a feasible solution for some upper bound
+   $l$, i.e., a set $C\subseteq V, |C|\leq k$ for which every city $v\in V$ has
+   a center $c\in C$ within distance $d_{vc}\leq l$, or prove that no such set
+   $C$ exists.
+3. Implement an exact solver for the problem by efficiently searching for the
+   smallest feasible $l$ and returning the corresponding $C$. You find a code
+   structure in `solution.py`. You can verify your implementation by running
    `python3 verify.py` in the terminal.
 
 ## References
