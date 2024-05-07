@@ -82,6 +82,7 @@ familiarity with the topics covered.
 |                                                                                  2024-04-02 to 2023-04-16                                                                                  |                                                                                                    2024-04-9 to 2024-04-23                                                                                                    |                                                                                             2024-04-16 to 2023-04-30                                                                                             |                                                                                                                          2024-04-23 to 2024-05-07                                                                                                                           |
 | Here you will explore the use of CP-SAT, a declarative constraint programming solver. You will learn to define your problem mathematically, allowing CP-SAT to efficiently find solutions. | This exercise delves into the foundational algorithm behind generic solvers like CP-SAT. Participants will gain insights into what these solvers require for optimal performance by exploring the Branch and Bound algorithm. | After the high-level interface provided by CP-SAT, this exercise demands a closer interaction with the core mechanics of a SAT solver. You will learn to translate complex problems into basic logical formulas. | Learn about Mixed Integer Programming (MIP), a technique favored by many optimization experts. Although not as expressive as CP-SAT, MIP offers better scalability and the opportunity to apply various optimization tricks thanks to an extensive mathematical foundation. |
 
+
 ### Final Project
 
 In the latter part of the course, we will embark on a comprehensive final
@@ -117,6 +118,12 @@ Please note, as a five-credit course, you are expected to dedicate approximately
 and the project, with no more than 50 hours slated for the exercises.
 Consequently, a minimum of 100 hours should be devoted to the project, ensuring
 a deep and productive engagement with the material and the challenge at hand.
+
+
+| [Project](./project.md) (<- click for more details)  |
+| :----------------: |
+| 2024-05-07 to 2024-07-12 |
+| Use your newly acquired skills to tackle a real-world optimization challenge! |
 
 ## Prerequisites
 
