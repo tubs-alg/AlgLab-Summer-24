@@ -397,6 +397,105 @@ You can find the full code in the file
 notebook with an example usage can be found in
 [./examples/steiner_tree/steiner.ipynb](./examples/steiner_tree/steiner.ipynb).
 
+## Some Modeling Techniques
+
+This section will introduce basic modeling techniques that you might find
+helpful for your exercises.
+
+### Logical Constraints
+
+Gurobi does not directly accept logical constraints such as AND, OR, NOT, or
+IMPLICATION. However, you can easily model these using linear constraints.
+
+```python
+model = gp.Model()
+x = model.addVar(vtype=GRB.BINARY, name="x")
+y = model.addVar(vtype=GRB.BINARY, name="y")
+z = model.addVar(vtype=GRB.BINARY, name="z")
+
+# OR (AT LEAST ONE)
+model.addConstr(x + y + z >= 1)
+
+# AT LEAST TWO
+model.addConstr(x + y + z >= 2)
+
+# NEGATION (x OR y OR NOT z)
+model.addConstr(x + y + (1 - z) >= 1)
+
+# IMPLICATION (x IMPLIES y)
+model.addConstr(x <= y)
+
+# IMPLICATION (x IMPLIES NOT y)
+model.addConstr(x <= 1 - y)
+
+# IMPLICATION (x AND y IMPLIES z)
+model.addConstr(x + y <= 2 * z)
+```
+
+### Forcing a Variable to Zero Under Certain Conditions
+
+At times, you might need to set a variable to zero based on the state of another
+variable. For example, using a resource might be contingent on a specific
+condition being met.
+
+```python
+model = gp.Model()
+
+use_resource1 = model.addVar(vtype=GRB.BINARY, name="use_resource1")
+use_resource2 = model.addVar(vtype=GRB.BINARY, name="use_resource2")
+lb = -10  # Lower bound for the resources
+ub = 10  # Upper bound for the resources
+resource1 = model.addVar(vtype=GRB.CONTINUOUS, name="resource1", lb=lb, ub=ub)
+resource2 = model.addVar(vtype=GRB.CONTINUOUS, name="resource2", lb=lb, ub=ub)
+
+# Ensuring resource1 is zero if use_resource1 is zero
+model.addConstr(resource1 <= ub * use_resource1)
+model.addConstr(resource1 >= lb * use_resource1)
+
+# Ensuring resource2 is zero if use_resource2 is zero
+model.addConstr(resource2 <= ub * use_resource2)
+model.addConstr(resource2 >= lb * use_resource2)
+
+# Ensuring that only one resource can be used at a time
+model.addConstr(use_resource1 + use_resource2 <= 1)
+```
+
+### Big-M Constraints
+
+Big-M constraints are widely used in mathematical modeling to handle logical
+conditions. This technique incorporates a large number \(M\) into the model to
+conditionally enforce constraints based on the status of a binary variable.
+
+Here's how it works: \(M\) should be sufficiently large to render the constraint
+non-restrictive when the binary variable is 0. However, when the binary variable
+is 1, the constraint becomes active and influences the solution.
+
+Selecting an appropriate value for \(M\) is critical; it must be large enough to
+ensure the constraint's validity but not so large that it causes numerical
+stability issues or unnecessarily complicates the model's solution process. It
+is best to use the smallest effective value of \(M\) and to minimize the use of
+Big-M constraints to maintain model efficiency and solvability.
+
+Here is an example that illustrates the application of a Big-M constraint in a
+model:
+
+```python
+model = gp.Model()
+
+x = model.addVar(vtype=GRB.BINARY, name="x")
+y = model.addVar(vtype=GRB.CONTINUOUS, name="y", ub=100)
+z = model.addVar(vtype=GRB.CONTINUOUS, name="z", ub=100)
+
+# A Big-M constraint example:
+# 10*y + 20*z <= 1000 only if x == 1
+M = 10 * 100 + 20 * 100  # Compute a suitable M based on the bounds of y and z
+model.addConstr(10 * y + 20 * z <= 1000 + M * (1 - x))
+```
+
+This example illustrates enforcing the constraint \(10y + 20z \leq 1000\) only
+when \(x = 1\). If \(x = 0\), the addition of \(M\) makes the inequality
+trivially true, thereby disabling the constraint under this condition.
+
 ## Linear Relaxation and its Importance in MIP Solving
 
 Linear Relaxation plays a pivotal role in solving Mixed Integer Programs (MIPs).
