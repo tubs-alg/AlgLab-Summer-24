@@ -463,17 +463,17 @@ model.addConstr(use_resource1 + use_resource2 <= 1)
 ### Big-M Constraints
 
 Big-M constraints are widely used in mathematical modeling to handle logical
-conditions. This technique incorporates a large number \(M\) into the model to
+conditions. This technique incorporates a large number $M$ into the model to
 conditionally enforce constraints based on the status of a binary variable.
 
-Here's how it works: \(M\) should be sufficiently large to render the constraint
+Here's how it works: $M$ should be sufficiently large to render the constraint
 non-restrictive when the binary variable is 0. However, when the binary variable
 is 1, the constraint becomes active and influences the solution.
 
-Selecting an appropriate value for \(M\) is critical; it must be large enough to
+Selecting an appropriate value for $M$ is critical; it must be large enough to
 ensure the constraint's validity but not so large that it causes numerical
 stability issues or unnecessarily complicates the model's solution process. It
-is best to use the smallest effective value of \(M\) and to minimize the use of
+is best to use the smallest effective value of $M$ and to minimize the use of
 Big-M constraints to maintain model efficiency and solvability.
 
 Here is an example that illustrates the application of a Big-M constraint in a
@@ -492,8 +492,8 @@ M = 10 * 100 + 20 * 100  # Compute a suitable M based on the bounds of y and z
 model.addConstr(10 * y + 20 * z <= 1000 + M * (1 - x))
 ```
 
-This example illustrates enforcing the constraint \(10y + 20z \leq 1000\) only
-when \(x = 1\). If \(x = 0\), the addition of \(M\) makes the inequality
+This example illustrates enforcing the constraint $10y + 20z \leq 1000$ only
+when $x = 1$. If $x = 0$, the addition of $M$ makes the inequality
 trivially true, thereby disabling the constraint under this condition.
 
 ## Linear Relaxation and its Importance in MIP Solving
