@@ -38,7 +38,10 @@ def solve_hc_instance(filepath: str, objective_sol: int):
 
     budget_used = 0.0
     for (u, v), util in solution:
-        CHECK(isinstance(util, int), f"The utilization of a tunnel must be an integer! Current type: {type(util)} ({util})")
+        CHECK(
+            isinstance(util, int),
+            f"The utilization of a tunnel must be an integer! Current type: {type(util)} ({util})",
+        )
         for i in (u, v):
             CHECK(
                 i == instance.map.elevator.id or u in mine_lookup.keys(),
@@ -47,8 +50,14 @@ def solve_hc_instance(filepath: str, objective_sol: int):
         road = find_road(u, v)
         budget_used += road.reinforcement_costs
         capacity = road.throughput_per_hour
-        CHECK(util > 0, f"Tunnels in the solution must only have positive utilization! However, there is a tunnel with utilization {util}!")
-        CHECK(util <= capacity, f"The capacity of a tunnel was exceeded! (utilization: {util}, capacity: {capacity})")
+        CHECK(
+            util > 0,
+            f"Tunnels in the solution must only have positive utilization! However, there is a tunnel with utilization {util}!",
+        )
+        CHECK(
+            util <= capacity,
+            f"The capacity of a tunnel was exceeded! (utilization: {util}, capacity: {capacity})",
+        )
         flow_graph.add_edge(u, v, capacity=capacity, utilization=util)
     CHECK(
         budget_used <= instance.budget + EPS,
@@ -71,8 +80,14 @@ def solve_hc_instance(filepath: str, objective_sol: int):
             d["utilization"] for u, v, d in flow_graph.out_edges(loc, data=True)
         )
         if loc == instance.map.elevator.id:
-            CHECK(out_sum == 0, f"No resources must leave the elevator location! Current: {out_sum}")
-            CHECK(in_sum == objective_sol, f"The objective is not optimal! {in_sum} != {objective_sol}")
+            CHECK(
+                out_sum == 0,
+                f"No resources must leave the elevator location! Current: {out_sum}",
+            )
+            CHECK(
+                in_sum == objective_sol,
+                f"The objective is not optimal! {in_sum} != {objective_sol}",
+            )
         else:
             CHECK(
                 out_sum <= in_sum + mine_lookup[loc].ore_per_hour,

@@ -8,8 +8,6 @@ import gurobipy as gp
 import networkx as nx
 
 
-
-
 class GurobiTspRelaxationSolver:
     """
     IMPLEMENT ME!
@@ -29,7 +27,6 @@ class GurobiTspRelaxationSolver:
         ), "Invalid graph"
         self._model = gp.Model()
         # TODO: Implement me!
-
 
     def get_lower_bound(self) -> float:
         """

@@ -80,6 +80,18 @@ class _EdgeVariables:
         return nx.Graph(used_edges)
 
 
+def _check_linear(model: gp.Model):
+    # check if model has quadratic terms
+    if model.NumQConstrs > 0:
+        raise ValueError(
+            "The model uses quadratic constraints (multiplying variables), which are less efficient. All exercises can be solved with linear constraints."
+        )
+    if model.NumQNZs > 0:
+        raise ValueError(
+            "The model uses quadratic terms (multiplying variables) in the objective, which are less efficient. All exercises can be solved with linear terms."
+        )
+
+
 class SteinerTreeSolver:
     """
     A simple solver for the Unweighted Steiner Tree problem.
@@ -114,6 +126,7 @@ class SteinerTreeSolver:
     def solve(self, time_limit: float = 900, opt_tol: float = 0.0001):
         self.model.Params.timeLimit = time_limit  # Limit the runtime
         self.model.Params.mipGap = opt_tol  # Allowing a small optimality gap
+        self.model.Params.nonConvex = 0  # Throw an error if the model is non-convex
 
         def callback(model, where):
             # This callback is called by Gurobi on various occasions, and
@@ -141,6 +154,7 @@ class SteinerTreeSolver:
 
         self.model.Params.lazyConstraints = 1  # enable lazy constraints
         self.model.optimize(callback)  # pass the callback with the `solve` call
+        _check_linear(self.model)
         if self.model.status == GRB.OPTIMAL:
             return self._edge_vars.as_graph()
         if self.model.SolCount > 0:

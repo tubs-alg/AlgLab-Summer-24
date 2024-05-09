@@ -8,6 +8,16 @@ import gurobipy as gp
 import networkx as nx
 
 
+def _check_linear(model: gp.Model):
+    # check if model has quadratic terms
+    if model.NumQConstrs > 0:
+        raise ValueError(
+            "The model uses quadratic constraints (multiplying variables), which are less efficient. All exercises can be solved with linear constraints."
+        )
+    if model.NumQNZs > 0:
+        raise ValueError(
+            "The model uses quadratic terms (multiplying variables) in the objective, which are less efficient. All exercises can be solved with linear terms."
+        )
 
 
 class GurobiTspSolver:
@@ -29,7 +39,6 @@ class GurobiTspSolver:
         ), "Invalid graph"
         self._model = gp.Model()
         # TODO: Implement me!
-
 
     def get_lower_bound(self) -> float:
         """
@@ -56,6 +65,7 @@ class GurobiTspSolver:
         # Set parameters for the solver.
         self._model.Params.LogToConsole = 1
         self._model.Params.TimeLimit = time_limit
+        self._model.Params.nonConvex = 0  # Throw an error if the model is non-convex
         self._model.Params.lazyConstraints = 1
         self._model.Params.MIPGap = (
             opt_tol  # https://www.gurobi.com/documentation/11.0/refman/mipgap.html
@@ -63,4 +73,4 @@ class GurobiTspSolver:
 
         # ...
         # TODO: Implement me!
-
+        _check_linear(self._model)
