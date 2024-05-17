@@ -16,6 +16,10 @@ def _connected(solution):
     g = nx.Graph()
     g.add_nodes_from(solution.nodes)
     for u, v, x in solution.edges.data("x"):
+        CHECK(
+            x is not None,
+            "Solution graph does not include variable assignments! Make sure to add each variable assignment as edge data attribute 'x'",
+        )
         if x >= 0.01:
             g.add_edge(u, v, x=x)
     CHECK(
